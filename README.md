@@ -7,7 +7,7 @@ Backend Authentication & Authorization Service Deliver Three APIS (Login - Logou
 Clone the project
 
 ```bash
-  git clone https://link-to-project
+  git clone https://github.com/baselaly/auth-authz-service.git
 ```
 
 Go to the project directory
