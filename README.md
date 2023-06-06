@@ -46,6 +46,14 @@ Start the server
   npm run start:dev
 ```
 
+## Testing
+
+Run Unit Testing
+
+```bash
+  npm run test
+```
+
 ## Features
 
 - Login
