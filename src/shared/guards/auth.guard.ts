@@ -27,7 +27,7 @@ export class AuthGuard implements CanActivate {
         });
 
         if (blockedToken) {
-          throw new UnauthorizedException();
+          throw new UnauthorizedException({ message: 'UNAUTHENTICATED' });
         }
 
         request.user = result;

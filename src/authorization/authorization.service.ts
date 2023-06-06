@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CheckActionDto } from './dtos/index.dto';
-import { PermissionRepository, UserRepository } from 'src/shared/repositories/index.repository';
-import { CacheService } from 'src/shared/services/index.service';
+import { PermissionRepository, UserRepository } from '../shared/repositories/index.repository';
+import { CacheService } from '../shared/services/index.service';
 
 @Injectable()
 export class AuthorizationService {
@@ -15,7 +15,6 @@ export class AuthorizationService {
     let userPermissions = await this.cacheService.get(`user.${userId}.permissions`);
 
     if (!userPermissions) {
-      console.log('no cached permissions', userPermissions);
       // get user roles
       const user = await this.userRepository.find({
         where: { id: userId },
@@ -27,6 +26,7 @@ export class AuthorizationService {
           },
         },
       });
+
       const userRoleIds = user['userRoles'].map((userRole) => userRole.roleId);
 
       // get roles permissions

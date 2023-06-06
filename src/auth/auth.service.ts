@@ -1,10 +1,10 @@
 import { Injectable, UnauthorizedException } from '@nestjs/common';
-import { UserRepository, BlockedTokenRepository } from 'src/shared/repositories/index.repository';
+import { UserRepository, BlockedTokenRepository } from '../shared/repositories/index.repository';
 import { LoginDto } from './dtos/index.dto';
 import { IUser } from './interfaces/index.interface';
 import { PasswordService } from './services/index.service';
 import { LoginSerializer } from './serializers/login.serialicer';
-import { JwtAuthService } from 'src/shared/services/index.service';
+import { JwtAuthService } from '../shared/services/index.service';
 
 @Injectable()
 export class AuthService {
@@ -15,7 +15,7 @@ export class AuthService {
     private readonly blockedTokenRepository: BlockedTokenRepository,
   ) {}
 
-  public async login(loginDto: LoginDto): Promise<any> {
+  public async login(loginDto: LoginDto): Promise<LoginSerializer> {
     const user: IUser = await this.userRepository.find({
       where: { email: loginDto.email },
       select: {

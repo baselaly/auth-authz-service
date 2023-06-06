@@ -1,8 +1,8 @@
 import { Body, Controller, Get, Post, UseGuards } from '@nestjs/common';
 import { LoginDto } from './dtos/login.dto';
-import { SuccessClass } from 'src/shared/classes/success.class';
+import { SuccessClass } from '../shared/classes/success.class';
 import { AuthService } from './auth.service';
-import { AuthGuard } from 'src/shared/guards/auth.guard';
+import { AuthGuard } from '../shared/guards/auth.guard';
 import { AuthToken } from './decorators/auth-token.decorator';
 
 @Controller('auth')

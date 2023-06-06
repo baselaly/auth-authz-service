@@ -1,9 +1,9 @@
 import { Body, Controller, Post, UseGuards } from '@nestjs/common';
 import { AuthorizationService } from './authorization.service';
-import { SuccessClass } from 'src/shared/classes/success.class';
-import { AuthenticatedUser } from 'src/shared/decorators/authenticated-user.decorator';
+import { SuccessClass } from '../shared/classes/success.class';
+import { AuthenticatedUser } from '../shared/decorators/authenticated-user.decorator';
 import { CheckActionDto } from './dtos/index.dto';
-import { AuthGuard } from 'src/shared/guards/index.guard';
+import { AuthGuard } from '../shared/guards/index.guard';
 
 @Controller('authorization')
 export class AuthorizationController {
