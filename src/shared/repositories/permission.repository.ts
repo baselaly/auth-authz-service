@@ -23,7 +23,7 @@ export class PermissionRepository implements Ifind<Permission>, IFindAll<Permiss
     }
   }
 
-  async findAll(params: {
+  public async findAll(params: {
     select?: Prisma.PermissionSelect;
     skip?: number;
     take?: number;

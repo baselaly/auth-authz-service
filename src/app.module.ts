@@ -5,9 +5,12 @@ import { AuthModule } from './auth/auth.module';
 import { AuthorizationModule } from './authorization/authorization.module';
 import { ThrottlerGuard, ThrottlerModule } from '@nestjs/throttler';
 import { APP_GUARD } from '@nestjs/core';
+import { CronjobModule } from './cronjob/cronjob.module';
+import { ScheduleModule } from '@nestjs/schedule';
 
 @Module({
   imports: [
+    ScheduleModule.forRoot(),
     ConfigModule.forRoot({ isGlobal: true, expandVariables: true }),
     ThrottlerModule.forRootAsync({
       imports: [ConfigModule],
@@ -20,6 +23,7 @@ import { APP_GUARD } from '@nestjs/core';
     SharedModule,
     AuthModule,
     AuthorizationModule,
+    CronjobModule,
   ],
   providers: [
     {
